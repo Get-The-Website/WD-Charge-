@@ -1,0 +1,23 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Specify the 404 Error Document
+ErrorDocument 404 /404.php
+
+# Redirect "Home" to "index.php"
+RewriteRule ^Home$ index.php [L]
+RewriteRule ^About-Us$ about.php [L]
+RewriteRule ^Event$ event.php [L]
+RewriteRule ^Gallery$ gallery.php [L]
+RewriteRule ^Blog$ blog.php [L]
+RewriteRule ^Contact$ contact.php [L]
+RewriteRule ^Event-Details$ event-d.php [L]
+RewriteRule ^Blog-Details$ blog-d.php [L]
+
+RewriteRule ^Insert$ insert.php [L]
+RewriteRule ^Update$ update.php [L]
+
+# Ensure file paths match exactly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /404.php [L]
